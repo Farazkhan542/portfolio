@@ -9,7 +9,7 @@ export default function Contact() {
         <Card className="reveal border-transparent bg-primary text-primary-foreground shadow-elevated">
           <CardContent className="px-6 py-14 text-center md:py-16">
             <p className="text-[11px] font-semibold uppercase tracking-wider text-primary-foreground/70">
-              05 · Contact
+              06 · Contact
             </p>
             <h2 className="mt-3 font-heading text-3xl font-semibold tracking-tight md:text-4xl">
               Let&apos;s build something intelligent together
