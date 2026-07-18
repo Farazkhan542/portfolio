@@ -9,10 +9,10 @@ const JOBS = [
     role: "AI Agentic Developer",
     company: "Marktec",
     subtitle:
-      "Lead Management & Email Automation Platform — Client: DigitEMB (1.2M leads)",
+      "Lead Management & Email Automation Platform — Client: DigitEMB (1.7M leads)",
     points: [
       <>
-        Ingested <strong className="font-medium text-foreground">1.2M leads</strong>{" "}
+        Ingested <strong className="font-medium text-foreground">1.7M leads</strong>{" "}
         from MySQL, Excel and Gmail into a unified PostgreSQL database.
       </>,
       <>

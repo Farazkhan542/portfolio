@@ -166,12 +166,12 @@ export default function Hero() {
                 <span className="text-chart-4">&quot;gpt-4&quot;</span>
                 {",\n)\n\n"}
                 <span className="italic text-muted-foreground">
-                  # 1.2M leads → personalized outreach
+                  # 1.7M leads → personalized outreach
                 </span>
                 {"\n"}
                 <span className="text-foreground">run_pipeline</span>
                 {"(leads="}
-                <span className="text-highlight">1_200_000</span>
+                <span className="text-highlight">1_700_000</span>
                 {")\n"}
                 <span className="text-chart-4">✓ agents deployed · emails flowing</span>
               </code>

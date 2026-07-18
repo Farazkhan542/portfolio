@@ -79,7 +79,7 @@ export default function About() {
                 AI Agentic Developer at Marktec
               </strong>
               , where I architected a lead-management platform that unified{" "}
-              <strong className="font-medium text-foreground">1.2 million leads</strong>{" "}
+              <strong className="font-medium text-foreground">1.7 million leads</strong>{" "}
               from MySQL, Excel and Gmail into PostgreSQL — kept in sync in real
               time with{" "}
               <strong className="font-medium text-foreground">
