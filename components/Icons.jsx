@@ -108,6 +108,13 @@ export const ArrowUpRight = (props) => (
   </Icon>
 );
 
+export const Layout = (props) => (
+  <Icon {...props}>
+    <rect x="3" y="3" width="18" height="18" rx="2" />
+    <path d="M3 9h18M9 21V9" />
+  </Icon>
+);
+
 export const Quote = (props) => (
   <Icon {...props}>
     <path d="M10 11H6a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v7a4 4 0 0 1-4 4" />
