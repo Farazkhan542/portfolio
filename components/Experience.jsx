@@ -1,6 +1,8 @@
 import { Card, CardContent } from "@/components/ui/Card";
 import { Badge } from "@/components/ui/Badge";
+import { Button } from "@/components/ui/Button";
 import SectionHeader from "./SectionHeader";
+import { ArrowUpRight } from "./Icons";
 
 const JOBS = [
   {
@@ -44,6 +46,10 @@ const JOBS = [
       "Debezium",
       "OpenAI Agents SDK",
       "Docker",
+    ],
+    deployments: [
+      { label: "DigitEMB — Live Deployment", url: "https://agenticai.digitemb.com/" },
+      { label: "Metaweb — Live Deployment", url: "https://metaweb.mueed.xyz/" },
     ],
   },
   {
@@ -131,6 +137,28 @@ export default function Experience() {
                       </Badge>
                     ))}
                   </div>
+
+                  {job.deployments ? (
+                    <div className="mt-4 flex flex-wrap gap-2 border-t border-border pt-4">
+                      {job.deployments.map((d) => (
+                        <Button
+                          key={d.url}
+                          variant="outline"
+                          size="sm"
+                          href={d.url}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="group"
+                        >
+                          {d.label}
+                          <ArrowUpRight
+                            size={14}
+                            className="transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
+                          />
+                        </Button>
+                      ))}
+                    </div>
+                  ) : null}
                 </CardContent>
               </Card>
             </div>
