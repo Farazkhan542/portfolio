@@ -168,27 +168,6 @@ export default function Experience() {
                     ))}
                   </div>
 
-                  {job.deployments ? (
-                    <div className="mt-4 flex flex-wrap gap-2 border-t border-border pt-4">
-                      {job.deployments.map((d) => (
-                        <Button
-                          key={d.url}
-                          variant="outline"
-                          size="sm"
-                          href={d.url}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="group"
-                        >
-                          {d.label}
-                          <ArrowUpRight
-                            size={14}
-                            className="transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
-                          />
-                        </Button>
-                      ))}
-                    </div>
-                  ) : null}
                 </CardContent>
               </Card>
             </div>
