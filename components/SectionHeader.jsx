@@ -2,10 +2,12 @@ export default function SectionHeader({ path, title, description }) {
   const [root, name] = path.split("/");
 
   return (
-    <div className="reveal relative mb-10 overflow-hidden">
+    <div className="reveal relative mb-10 overflow-hidden pt-12 md:pt-16">
+      {/* Cropped by the wrapper so only the word's lower edge shows, in its own
+          band above the label — it must never sit behind the live text. */}
       <span
         aria-hidden="true"
-        className="pointer-events-none absolute -top-3 left-0 select-none whitespace-nowrap font-heading text-[3.5rem] font-bold uppercase leading-none text-foreground/[0.05] md:-top-6 md:text-[6rem] lg:text-[7.5rem]"
+        className="pointer-events-none absolute -top-4 left-0 select-none whitespace-nowrap font-heading text-[3.5rem] font-bold uppercase leading-none text-foreground/[0.05] md:-top-10 md:text-[6rem] lg:-top-16 lg:text-[7.5rem]"
       >
         {name}
       </span>
