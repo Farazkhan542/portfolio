@@ -202,6 +202,16 @@
   to { top: calc(100% - 6px); opacity: 0; }
 }
 
+/* ---------- Mobile menu enter/exit ---------- */
+@keyframes scale-down {
+  from { transform: scale(1); opacity: 1; }
+  to { transform: scale(0.85); opacity: 0; }
+}
+@keyframes scale-up {
+  from { transform: scale(0.85); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {
     animation-duration: 0.01ms !important;

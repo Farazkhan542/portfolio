@@ -19,7 +19,17 @@ const LINKS = [
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
+  const [menuMounted, setMenuMounted] = useState(false);
   const [active, setActive] = useState("home");
+
+  function openMenu() {
+    setMenuMounted(true);
+    setMenuOpen(true);
+  }
+
+  function closeMenu() {
+    setMenuOpen(false); // stays mounted through the closing animation, see onAnimationEnd below
+  }
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 24);
@@ -95,19 +105,29 @@ export default function Navbar() {
           className="md:hidden"
           aria-label="Toggle menu"
           aria-expanded={menuOpen}
-          onClick={() => setMenuOpen((open) => !open)}
+          onClick={() => (menuOpen ? closeMenu() : openMenu())}
         >
           {menuOpen ? <X /> : <Menu />}
         </Button>
       </nav>
 
-      {menuOpen && (
-        <div className="absolute inset-x-4 top-[68px] animate-scale-in rounded-xl border border-border bg-popover p-2 shadow-popover md:hidden">
+      {menuMounted && (
+        <div
+          className={cn(
+            "absolute inset-x-4 top-[68px] rounded-xl border border-border bg-popover p-2 shadow-popover md:hidden",
+            menuOpen
+              ? "animate-[scale-up_210ms_ease-out_forwards]"
+              : "animate-[scale-down_150ms_ease-in_forwards]"
+          )}
+          onAnimationEnd={() => {
+            if (!menuOpen) setMenuMounted(false);
+          }}
+        >
           {LINKS.map((link) => (
             <a
               key={link.id}
               href={`#${link.id}`}
-              onClick={() => setMenuOpen(false)}
+              onClick={closeMenu}
               className={cn(
                 "block rounded-lg px-3 py-2.5 text-sm font-medium transition-colors",
                 active === link.id
