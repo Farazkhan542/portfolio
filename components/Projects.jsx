@@ -249,24 +249,28 @@ export default function Projects() {
           </CardContent>
         </Card>
 
-        <div className="reveal mt-14 flex items-baseline justify-between gap-4 border-t border-border pt-6">
-          <p className="font-mono text-[11px] uppercase tracking-[0.18em] text-muted-foreground">
-            More work
-          </p>
-          <p className="hidden font-mono text-[11px] uppercase tracking-[0.18em] text-muted-foreground lg:block">
-            Keep scrolling →
-          </p>
-        </div>
       </div>
 
-      <HorizontalScroll className="mt-6">
+      <HorizontalScroll
+        className="mt-14"
+        header={
+          <>
+            <p className="font-heading text-xl font-medium tracking-tight md:text-2xl">
+              More work
+            </p>
+            <p className="font-mono text-[11px] uppercase tracking-[0.18em] text-muted-foreground">
+              Keep scrolling →
+            </p>
+          </>
+        }
+      >
         {PROJECTS.map((project) => (
           <TiltCard
             key={project.title}
             className="w-[clamp(280px,78vw,30rem)] shrink-0 snap-center"
           >
             <Card className="group h-full transition-all hover:border-primary/40 hover:shadow-elevated">
-              <CardContent className="flex h-full flex-col gap-4 py-5">
+              <CardContent className="flex h-full min-h-[19rem] flex-col gap-4 py-6">
                 <div className="flex items-start justify-between gap-2">
                   <span className="flex size-11 items-center justify-center rounded-lg border border-border text-muted-foreground">
                     {project.icon}
@@ -309,8 +313,8 @@ export default function Projects() {
           </TiltCard>
         ))}
 
-        <div className="flex w-[clamp(260px,70vw,24rem)] shrink-0 snap-center items-center">
-          <div className="w-full rounded-xl border border-dashed border-border bg-muted/10 px-6 py-10 text-center">
+        <div className="flex w-[clamp(260px,70vw,24rem)] shrink-0 snap-center items-stretch">
+          <div className="flex w-full min-h-[19rem] flex-col items-center justify-center rounded-xl border border-dashed border-border bg-muted/10 px-6 py-10 text-center">
             <p className="font-heading text-lg font-medium">There&apos;s more</p>
             <p className="mt-2 text-sm text-muted-foreground">
               Notebooks, experiments and smaller builds live on GitHub.
