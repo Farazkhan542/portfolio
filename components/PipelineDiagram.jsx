@@ -154,10 +154,15 @@ export default function PipelineDiagram() {
   return (
     <div className="blueprint-grid border-y border-border bg-muted/20 py-6 md:py-10">
       <div className="mx-auto w-full max-w-6xl px-4 md:px-8">
-        <p className="font-mono text-[11px] text-muted-foreground">
-          <span className="text-primary">$</span> trace lead-pipeline --client
-          digitemb --volume 1.7M --status <span className="text-primary">live</span>
-        </p>
+        <div className="flex flex-wrap items-baseline justify-between gap-x-6 gap-y-1">
+          <p className="font-mono text-[11px] text-muted-foreground">
+            <span className="text-primary">$</span> trace agent-pipeline --records
+            1.7M --agents 2 --status <span className="text-primary">live</span>
+          </p>
+          <p className="font-mono text-[10px] uppercase tracking-[0.18em] text-muted-foreground/70">
+            Architecture I built at Marktec
+          </p>
+        </div>
 
         <p className="sr-only">
           Lead pipeline, in order, as data flows left to right: sources feed

@@ -3,11 +3,11 @@ import PipelineDiagram from "./PipelineDiagram";
 import { ArrowUpRight, ArrowDown, GitHub, LinkedIn, Mail, WhatsApp } from "./Icons";
 
 const SPECS = [
-  { label: "Volume", value: "1.7M", sub: "leads unified" },
-  { label: "Deployed", value: "3", sub: "live client systems" },
-  { label: "Core stack", value: "Python · Postgres", sub: "Kafka · OpenAI SDK" },
-  { label: "Focus", value: "Agents & RAG", sub: "real-time pipelines" },
-  { label: "Status", value: "Open to roles", sub: "Karachi · remote" },
+  { label: "Builds", value: "Multi-agent systems", sub: "RAG · CDC pipelines" },
+  { label: "Scale", value: "1.7M records", sub: "largest system shipped" },
+  { label: "Shipped", value: "8 systems", sub: "client work & solo builds" },
+  { label: "Solo product", value: "VibeUI", sub: "live · multi-tenant SaaS" },
+  { label: "Based", value: "Karachi, PK", sub: "open to remote roles" },
 ];
 
 const SOCIALS = [
@@ -28,7 +28,9 @@ export default function Hero() {
         {/* Datasheet header strip */}
         <div className="reveal flex items-center justify-between gap-4 border-b border-border pb-4 font-mono text-[10px] uppercase tracking-[0.22em] text-muted-foreground md:text-[11px]">
           <span>AI Agentic Developer</span>
-          <span className="hidden sm:inline">LLM &amp; Data Systems</span>
+          <span className="hidden md:inline">
+            Python · Postgres · Kafka · OpenAI SDK
+          </span>
           <span className="inline-flex items-center gap-2">
             <span className="size-1.5 rounded-full bg-primary" />
             Available
