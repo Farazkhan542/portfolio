@@ -128,6 +128,12 @@ export const ArrowUp = (props) => (
   </Icon>
 );
 
+export const ArrowDown = (props) => (
+  <Icon {...props}>
+    <path d="M12 5v14M5 12l7 7 7-7" />
+  </Icon>
+);
+
 export const Sun = (props) => (
   <Icon {...props}>
     <circle cx="12" cy="12" r="4" />
