@@ -41,7 +41,7 @@ export default function Testimonials() {
     <section id="testimonials" className="py-20 md:py-24">
       <div className="mx-auto max-w-6xl px-4 md:px-8">
         <SectionHeader
-          label="05 · Testimonials"
+          path="~/testimonials"
           title="What people say about working with me"
         />
 
@@ -52,7 +52,7 @@ export default function Testimonials() {
               className={`reveal delay-${i + 1} transition-all hover:border-primary/40 hover:shadow-elevated`}
             >
               <CardContent className="flex h-full flex-col gap-4 py-5">
-                <span className="flex size-9 items-center justify-center rounded-lg bg-accent text-primary">
+                <span className="flex size-9 items-center justify-center rounded-lg border border-border text-muted-foreground">
                   <Quote size={16} />
                 </span>
 

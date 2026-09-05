@@ -61,7 +61,7 @@ export default function About() {
   return (
     <section id="about" className="py-20 md:py-24">
       <div className="mx-auto max-w-6xl px-4 md:px-8">
-        <SectionHeader label="01 · About" title="Engineering intelligence into every layer" />
+        <SectionHeader path="~/about" title="Engineering intelligence into every layer" />
 
         <div className="grid items-start gap-10 lg:grid-cols-2">
           <div className="reveal space-y-4 text-sm leading-relaxed text-muted-foreground md:text-base">
@@ -102,7 +102,7 @@ export default function About() {
                 className="reveal transition-all hover:border-primary/40 hover:shadow-elevated"
               >
                 <CardContent className="flex flex-col gap-3">
-                  <span className="flex size-9 items-center justify-center rounded-lg bg-accent text-primary">
+                  <span className="flex size-9 items-center justify-center rounded-lg border border-border text-muted-foreground">
                     {card.icon}
                   </span>
                   <div>

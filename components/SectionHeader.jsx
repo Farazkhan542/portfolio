@@ -1,10 +1,12 @@
-export default function SectionHeader({ label, title, description }) {
+export default function SectionHeader({ path, title, description }) {
+  const [root, name] = path.split("/");
+
   return (
     <div className="reveal mb-10">
-      <p className="text-[11px] font-semibold uppercase tracking-wider text-primary">
-        {label}
+      <p className="font-mono text-xs text-muted-foreground">
+        {root}/<span className="text-primary">{name}</span>
       </p>
-      <h2 className="mt-2 font-heading text-2xl font-semibold tracking-tight md:text-3xl">
+      <h2 className="mt-2 font-heading text-2xl font-medium tracking-tight md:text-3xl">
         {title}
       </h2>
       {description ? (

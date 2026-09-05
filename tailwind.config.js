@@ -60,7 +60,6 @@ module.exports = {
         sans: ["var(--font-sans)", "system-ui", "sans-serif"],
         heading: ["var(--font-heading)", "var(--font-sans)", "sans-serif"],
         mono: ["var(--font-mono)", "monospace"],
-        grotesk: ["var(--font-grotesk)", "var(--font-sans)", "sans-serif"],
       },
       borderRadius: {
         lg: "var(--radius)",

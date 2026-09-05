@@ -95,7 +95,7 @@ export default function Experience() {
   return (
     <section id="experience" className="py-20 md:py-24">
       <div className="mx-auto max-w-6xl px-4 md:px-8">
-        <SectionHeader label="02 · Experience" title="Where I've been building things" />
+        <SectionHeader path="~/experience" title="Where I've been building things" />
 
         <div className="relative max-w-3xl space-y-6 border-l border-border pl-8">
           {JOBS.map((job) => (
@@ -117,6 +117,36 @@ export default function Experience() {
                   <p className="mt-0.5 text-sm font-medium text-primary">
                     {job.subtitle}
                   </p>
+
+                  {job.deployments ? (
+                    <div className="mt-4 rounded-lg border border-primary/25 bg-accent px-4 py-3.5">
+                      <p className="flex items-center gap-2 text-[11px] font-semibold uppercase tracking-wider text-primary">
+                        <span className="relative flex size-1.5">
+                          <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-primary opacity-60"></span>
+                          <span className="relative inline-flex size-1.5 rounded-full bg-primary"></span>
+                        </span>
+                        Live client deployments
+                      </p>
+                      <div className="mt-2.5 flex flex-wrap gap-2">
+                        {job.deployments.map((d) => (
+                          <Button
+                            key={d.url}
+                            size="sm"
+                            href={d.url}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="group"
+                          >
+                            {d.label}
+                            <ArrowUpRight
+                              size={14}
+                              className="transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
+                            />
+                          </Button>
+                        ))}
+                      </div>
+                    </div>
+                  ) : null}
 
                   <ul className="mt-4 space-y-2.5">
                     {job.points.map((point, i) => (

@@ -128,7 +128,7 @@ export default function Projects() {
   return (
     <section id="projects" className="py-20 md:py-24">
       <div className="mx-auto max-w-6xl px-4 md:px-8">
-        <SectionHeader label="03 · Projects" title="Selected work I'm proud of" />
+        <SectionHeader path="~/projects" title="Selected work I'm proud of" />
 
         {/* Featured project */}
         <Card className="reveal mb-4 overflow-hidden border-primary/30 shadow-elevated">
@@ -242,7 +242,7 @@ export default function Projects() {
             >
               <CardContent className="flex h-full flex-col gap-4 py-5">
                 <div className="flex items-start justify-between gap-2">
-                  <span className="flex size-11 items-center justify-center rounded-lg bg-accent text-primary">
+                  <span className="flex size-11 items-center justify-center rounded-lg border border-border text-muted-foreground">
                     {project.icon}
                   </span>
                   {project.badge ? (

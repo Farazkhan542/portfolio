@@ -1,25 +1,21 @@
-import { DM_Sans, Geist, Geist_Mono, Space_Grotesk } from "next/font/google";
+import { Familjen_Grotesk, Geist, IBM_Plex_Mono } from "next/font/google";
 import { ThemeProvider } from "@/components/ThemeProvider";
 import "./globals.css";
 
-const dmSans = DM_Sans({
+const display = Familjen_Grotesk({
   subsets: ["latin"],
   variable: "--font-heading",
 });
 
-const geist = Geist({
+const body = Geist({
   subsets: ["latin"],
   variable: "--font-sans",
 });
 
-const geistMono = Geist_Mono({
+const mono = IBM_Plex_Mono({
   subsets: ["latin"],
+  weight: ["400", "500"],
   variable: "--font-mono",
-});
-
-const spaceGrotesk = Space_Grotesk({
-  subsets: ["latin"],
-  variable: "--font-grotesk",
 });
 
 export const metadata = {
@@ -46,7 +42,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en" suppressHydrationWarning>
       <body
-        className={`${dmSans.variable} ${geist.variable} ${geistMono.variable} ${spaceGrotesk.variable} min-h-screen`}
+        className={`${display.variable} ${body.variable} ${mono.variable} min-h-screen`}
       >
         <ThemeProvider
           attribute="class"

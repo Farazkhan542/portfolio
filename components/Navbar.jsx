@@ -54,11 +54,14 @@ export default function Navbar() {
     >
       <nav className="mx-auto flex h-16 max-w-6xl items-center gap-3 px-4 md:px-8">
         <a href="#home" className="mr-auto flex items-center gap-2.5">
-          <span className="flex size-9 items-center justify-center rounded-lg bg-primary font-heading text-sm font-bold text-primary-foreground shadow-sm">
-            FK
+          <span className="grid size-9 grid-cols-2 gap-0.5 rounded-lg border border-border bg-muted/40 p-1.5">
+            <span className="rounded-[2px] bg-muted-foreground/40" />
+            <span className="rounded-[2px] bg-[hsl(var(--chart-3))]" />
+            <span className="rounded-[2px] bg-highlight" />
+            <span className="animate-pulse rounded-[2px] bg-primary" />
           </span>
-          <span className="font-heading text-lg font-semibold tracking-tight">
-            Faraz<span className="text-primary">.dev</span>
+          <span className="font-heading text-lg font-medium tracking-tight">
+            Faraz Khan
           </span>
         </a>
 

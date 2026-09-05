@@ -61,7 +61,7 @@ export default function Skills() {
   return (
     <section id="skills" className="py-20 md:py-24">
       <div className="mx-auto max-w-6xl px-4 md:px-8">
-        <SectionHeader label="04 · Skills" title="My technical arsenal" />
+        <SectionHeader path="~/skills" title="My technical arsenal" />
 
         <div className="grid gap-4 md:grid-cols-2">
           {SKILL_GROUPS.map((group) => (
@@ -71,7 +71,7 @@ export default function Skills() {
             >
               <CardContent className="py-5">
                 <div className="flex items-center gap-3">
-                  <span className="flex size-9 items-center justify-center rounded-lg bg-accent text-primary">
+                  <span className="flex size-9 items-center justify-center rounded-lg border border-border text-muted-foreground">
                     {group.icon}
                   </span>
                   <h3 className="font-heading text-base font-semibold leading-tight tracking-tight">
