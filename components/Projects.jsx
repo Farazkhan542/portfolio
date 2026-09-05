@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { Card, CardContent } from "@/components/ui/Card";
 import { Badge } from "@/components/ui/Badge";
 import { Button } from "@/components/ui/Button";
@@ -133,6 +134,17 @@ export default function Projects() {
 
         {/* Featured project */}
         <Card className="reveal mb-4 overflow-hidden border-primary/30 shadow-elevated">
+          <div className="relative border-b border-border bg-muted/20">
+            <Image
+              src="/projects/vibeui.png"
+              alt="VibeUI landing page: 'Turn a conversation into a real UI component'"
+              width={1600}
+              height={1000}
+              className="w-full"
+            />
+            <div className="pointer-events-none absolute inset-x-0 bottom-0 h-20 bg-gradient-to-t from-card to-transparent" />
+          </div>
+
           <CardContent className="grid gap-8 py-6 lg:grid-cols-[1.1fr_0.9fr]">
             <div className="flex flex-col">
               <div className="flex flex-wrap items-center gap-2">

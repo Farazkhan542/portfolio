@@ -1,5 +1,6 @@
 import { Familjen_Grotesk, Geist, IBM_Plex_Mono } from "next/font/google";
 import { ThemeProvider } from "@/components/ThemeProvider";
+import SmoothScroll from "@/components/SmoothScroll";
 import "./globals.css";
 
 const display = Familjen_Grotesk({
@@ -50,6 +51,7 @@ export default function RootLayout({ children }) {
           enableSystem={false}
           disableTransitionOnChange
         >
+          <SmoothScroll />
           {children}
         </ThemeProvider>
       </body>

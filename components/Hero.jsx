@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/Button";
 import PipelineDiagram from "./PipelineDiagram";
-import { ArrowUpRight, ArrowDown, GitHub, LinkedIn, Mail } from "./Icons";
+import { ArrowUpRight, ArrowDown, GitHub, LinkedIn, Mail, WhatsApp } from "./Icons";
 
 const STATS = [
   { value: "1.7M", label: "Leads processed" },
@@ -75,6 +75,15 @@ export default function Hero() {
                     className="transition-colors hover:text-foreground"
                   >
                     <Mail size={16} />
+                  </a>
+                  <a
+                    href="https://wa.me/923330343433"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="WhatsApp"
+                    className="transition-colors hover:text-foreground"
+                  >
+                    <WhatsApp size={16} />
                   </a>
                 </span>
               </div>

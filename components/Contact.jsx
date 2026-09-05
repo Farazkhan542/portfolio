@@ -1,6 +1,32 @@
 import { Card, CardContent } from "@/components/ui/Card";
-import { Button } from "@/components/ui/Button";
-import { Mail, Phone, GitHub, LinkedIn } from "./Icons";
+import { Mail, WhatsApp, GitHub, LinkedIn, ArrowUpRight } from "./Icons";
+
+const METHODS = [
+  {
+    icon: <Mail size={18} />,
+    label: "Email",
+    value: "khanfaraz39767@gmail.com",
+    href: "mailto:khanfaraz39767@gmail.com",
+  },
+  {
+    icon: <WhatsApp size={18} />,
+    label: "WhatsApp",
+    value: "+92 333 034 3433",
+    href: "https://wa.me/923330343433",
+  },
+  {
+    icon: <LinkedIn size={18} />,
+    label: "LinkedIn",
+    value: "Muhammad Faraz Khan",
+    href: "https://www.linkedin.com/in/muhammad-faraz-khan-7720b1248",
+  },
+  {
+    icon: <GitHub size={18} />,
+    label: "GitHub",
+    value: "Farazkhan542",
+    href: "https://github.com/Farazkhan542",
+  },
+];
 
 export default function Contact() {
   return (
@@ -25,40 +51,35 @@ export default function Contact() {
               agents and RAG? My inbox is always open.
             </p>
 
-            <div className="mt-8 flex flex-wrap justify-center gap-3">
-              <Button size="lg" href="mailto:khanfaraz39767@gmail.com">
-                <Mail />
-                khanfaraz39767@gmail.com
-              </Button>
-              <Button variant="outline" size="lg" href="tel:+923330343433">
-                <Phone />
-                +92 333 034 3433
-              </Button>
+            <div className="mx-auto mt-10 grid max-w-2xl gap-3 text-left sm:grid-cols-2">
+              {METHODS.map((method) => (
+                <a
+                  key={method.label}
+                  href={method.href}
+                  target={method.href.startsWith("http") ? "_blank" : undefined}
+                  rel={method.href.startsWith("http") ? "noopener noreferrer" : undefined}
+                  className="group flex items-center gap-3 rounded-lg border border-border bg-muted/20 px-4 py-3 transition-all hover:border-primary/40 hover:bg-muted/40"
+                >
+                  <span className="flex size-9 shrink-0 items-center justify-center rounded-lg border border-border text-muted-foreground">
+                    {method.icon}
+                  </span>
+                  <span className="min-w-0 flex-1">
+                    <span className="block text-[11px] uppercase tracking-wide text-muted-foreground">
+                      {method.label}
+                    </span>
+                    <span className="block truncate text-sm font-medium text-foreground">
+                      {method.value}
+                    </span>
+                  </span>
+                  <ArrowUpRight
+                    size={15}
+                    className="shrink-0 text-muted-foreground transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5 group-hover:text-primary"
+                  />
+                </a>
+              ))}
             </div>
 
-            <div className="mt-8 flex flex-wrap items-center justify-center gap-4 text-sm text-muted-foreground">
-              <a
-                href="https://github.com/Farazkhan542"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-1.5 font-medium text-foreground underline-offset-4 hover:text-primary hover:underline"
-              >
-                <GitHub size={14} />
-                GitHub
-              </a>
-              <span aria-hidden="true">·</span>
-              <a
-                href="https://www.linkedin.com/in/muhammad-faraz-khan-7720b1248"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-1.5 font-medium text-foreground underline-offset-4 hover:text-primary hover:underline"
-              >
-                <LinkedIn size={14} />
-                LinkedIn
-              </a>
-              <span aria-hidden="true">·</span>
-              <span>Karachi, Pakistan</span>
-            </div>
+            <p className="mt-8 text-sm text-muted-foreground">Karachi, Pakistan</p>
           </CardContent>
         </Card>
       </div>
