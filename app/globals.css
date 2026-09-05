@@ -3,50 +3,56 @@
 @tailwind utilities;
 
 /* ============================================================
-   Design tokens — graphite-green "ink" ground, three working
-   accents tied to real meaning rather than one accent painted
-   everywhere: signal (lime, active/live), data (teal, validated
-   & enriched), relay (amber, agents & outreach). Light theme in
-   :root, dark in .dark. All colors are HSL triples, consumed as
-   hsl(var(--token)).
+   Design tokens — smoky-black ground (#11120D) in dark, warm paper
+   in light, both on a shared warm-olive hue so the neutrals agree
+   with the lime. Three working accents tied to real meaning rather
+   than one accent painted everywhere: signal (lime, active/live),
+   data (teal, validated & enriched), relay (amber, agents &
+   outreach). Light theme in :root, dark in .dark. All colors are
+   HSL triples, consumed as hsl(var(--token)).
    ============================================================ */
 
 :root {
-  --background: 80 16% 96%;
-  --foreground: 150 14% 11%;
-  --card: 60 22% 99%;
-  --card-foreground: 150 14% 11%;
-  --popover: 60 22% 99%;
-  --popover-foreground: 150 14% 11%;
-  --primary: 84 48% 28%;             /* signal: olive-lime, readable on light */
+  --background: 75 15% 94%;          /* warm paper, deep enough for cards to lift */
+  --foreground: 75 15% 10%;
+  --card: 60 20% 99%;
+  --card-foreground: 75 15% 10%;
+  --popover: 60 20% 99%;
+  --popover-foreground: 75 15% 10%;
+  --primary: 84 55% 29%;             /* signal: deep lime, readable on paper */
   --primary-foreground: 80 40% 97%;
-  --secondary: 80 10% 91%;
-  --secondary-foreground: 150 10% 20%;
-  --muted: 80 10% 92%;
-  --muted-foreground: 150 6% 40%;
-  --accent: 84 34% 89%;              /* tinted signal */
-  --accent-foreground: 84 48% 20%;
-  --highlight: 34 92% 46%;           /* relay: amber */
+  --secondary: 75 12% 90%;
+  --secondary-foreground: 75 12% 20%;
+  --muted: 75 12% 91%;
+  --muted-foreground: 75 8% 36%;
+  --accent: 84 38% 88%;              /* tinted signal */
+  --accent-foreground: 84 55% 22%;
+  --highlight: 34 92% 42%;           /* relay: amber */
   --highlight-foreground: 40 40% 98%;
-  --success: 152 46% 34%;
+  --success: 152 46% 32%;
   --success-foreground: 0 0% 100%;
-  --warning: 34 92% 44%;
+  --warning: 34 92% 42%;
   --warning-foreground: 0 0% 100%;
-  --destructive: 0 68% 48%;
+  --destructive: 0 68% 46%;
   --destructive-foreground: 0 0% 98%;
-  --border: 80 10% 86%;
-  --input: 80 10% 84%;
-  --ring: 84 48% 32%;
-  --chart-1: 84 48% 34%;
-  --chart-2: 34 92% 46%;
-  --chart-3: 184 58% 34%;            /* data: teal */
-  --chart-4: 152 42% 38%;
-  --chart-5: 12 55% 50%;
+  --border: 75 12% 84%;
+  --input: 75 12% 82%;
+  --ring: 84 55% 33%;
+  --chart-1: 84 55% 32%;
+  --chart-2: 34 92% 42%;
+  --chart-3: 184 58% 30%;            /* data: teal */
+  --chart-4: 152 42% 34%;
+  --chart-5: 12 55% 46%;
   --radius: 0.625rem;
+
+  /* Ambient layer, tuned per theme: on paper the glow blobs read as dirty
+     smudges if they carry dark-theme strength, so they're pulled right back. */
+  --ambient-opacity: 0.2;
+  --grid-alpha: 0.055;
 
   --ease-premium: cubic-bezier(0.16, 1, 0.3, 1);
 
-  --shadow-color: 150 30% 4%;
+  --shadow-color: 75 30% 4%;
   --shadow-xs: 0 1px 2px 0 hsl(var(--shadow-color) / 0.16);
   --shadow-sm: 0 1px 2px -1px hsl(var(--shadow-color) / 0.24), 0 2px 5px -1px hsl(var(--shadow-color) / 0.16);
   --shadow-card: 0 1px 3px 0 hsl(var(--shadow-color) / 0.2), 0 6px 16px -6px hsl(var(--shadow-color) / 0.24);
@@ -55,30 +61,30 @@
 }
 
 .dark {
-  --background: 150 13% 6%;          /* graphite-green ink, not neutral gray */
-  --foreground: 90 12% 92%;
-  --card: 150 11% 9%;
-  --card-foreground: 90 12% 92%;
-  --popover: 150 11% 10%;
-  --popover-foreground: 90 12% 92%;
+  --background: 72 16% 6%;           /* smoky black #11120D — warm, matches lime */
+  --foreground: 80 12% 92%;
+  --card: 75 12% 9%;
+  --card-foreground: 80 12% 92%;
+  --popover: 75 12% 10%;
+  --popover-foreground: 80 12% 92%;
   --primary: 84 68% 56%;             /* signal: lime, used sparingly */
-  --primary-foreground: 150 30% 8%;
-  --secondary: 150 8% 15%;
-  --secondary-foreground: 90 10% 90%;
-  --muted: 150 8% 14%;
-  --muted-foreground: 150 6% 60%;
+  --primary-foreground: 75 30% 8%;
+  --secondary: 75 9% 15%;
+  --secondary-foreground: 80 10% 90%;
+  --muted: 75 9% 14%;
+  --muted-foreground: 75 7% 62%;
   --accent: 84 28% 16%;
   --accent-foreground: 84 58% 72%;
   --highlight: 34 88% 55%;           /* relay: amber */
-  --highlight-foreground: 150 20% 8%;
+  --highlight-foreground: 75 20% 8%;
   --success: 152 45% 46%;
-  --success-foreground: 150 20% 8%;
+  --success-foreground: 75 20% 8%;
   --warning: 34 90% 55%;
-  --warning-foreground: 150 20% 8%;
+  --warning-foreground: 75 20% 8%;
   --destructive: 3 65% 52%;
   --destructive-foreground: 0 0% 98%;
-  --border: 150 8% 17%;
-  --input: 150 8% 19%;
+  --border: 75 9% 18%;
+  --input: 75 9% 20%;
   --ring: 84 65% 52%;
   --chart-1: 84 60% 56%;
   --chart-2: 34 90% 56%;
@@ -86,7 +92,10 @@
   --chart-4: 152 42% 48%;
   --chart-5: 12 62% 58%;
 
-  --shadow-color: 150 60% 2%;
+  --ambient-opacity: 0.85;
+  --grid-alpha: 0.15;
+
+  --shadow-color: 75 60% 2%;
 }
 
 @layer base {
@@ -166,7 +175,7 @@
 
   /* Faint dot grid for the pipeline schematic panel */
   .blueprint-grid {
-    background-image: radial-gradient(hsl(var(--foreground) / 0.09) 1px, transparent 1px);
+    background-image: radial-gradient(hsl(var(--foreground) / var(--grid-alpha)) 1px, transparent 1px);
     background-size: 18px 18px;
   }
 }
@@ -192,8 +201,8 @@
   position: absolute;
   inset: -10%;
   background-image:
-    linear-gradient(hsl(var(--foreground) / 0.07) 1px, transparent 1px),
-    linear-gradient(90deg, hsl(var(--foreground) / 0.07) 1px, transparent 1px);
+    linear-gradient(hsl(var(--foreground) / var(--grid-alpha)) 1px, transparent 1px),
+    linear-gradient(90deg, hsl(var(--foreground) / var(--grid-alpha)) 1px, transparent 1px);
   background-size: 56px 56px;
   animation: grid-flow 26s linear infinite;
   mask-image: radial-gradient(ellipse 70% 60% at 50% 0%, black 20%, transparent 75%);
@@ -203,7 +212,7 @@
   position: absolute;
   border-radius: 50%;
   filter: blur(75px);
-  opacity: 0.85;
+  opacity: var(--ambient-opacity);
 }
 .ambient-blob-1 {
   width: 500px; height: 500px;
