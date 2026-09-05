@@ -15,6 +15,9 @@
 :root {
   --background: 75 15% 94%;          /* warm paper, deep enough for cards to lift */
   --foreground: 72 16% 6%;            /* smoky black #11120D for headings/text */
+  --heading-display: 75 10% 16%;     /* #2A2C24 — smoky, for the hero name only:
+                                        display type at that size reads heavy at
+                                        full black, body copy still wants it */
   --card: 60 20% 99%;
   --card-foreground: 72 16% 6%;
   --popover: 60 20% 99%;
@@ -63,6 +66,7 @@
 .dark {
   --background: 72 16% 6%;           /* smoky black #11120D — warm, matches lime */
   --foreground: 80 12% 92%;
+  --heading-display: 80 12% 92%;     /* hero name stays near-white on dark */
   --card: 75 12% 9%;
   --card-foreground: 80 12% 92%;
   --popover: 75 12% 10%;

@@ -38,7 +38,7 @@ export default function Hero() {
         </div>
 
         {/* Name as the graphic */}
-        <h1 className="reveal delay-1 mt-8 font-heading font-semibold leading-[0.86] tracking-[-0.04em] text-[clamp(2.75rem,10vw,8rem)] md:mt-10">
+        <h1 className="reveal delay-1 mt-8 font-heading font-semibold leading-[0.86] tracking-[-0.04em] text-[clamp(2.75rem,10vw,8rem)] text-[hsl(var(--heading-display))] md:mt-10">
           <span className="block">Muhammad</span>
           <span className="block">Faraz Khan</span>
         </h1>
