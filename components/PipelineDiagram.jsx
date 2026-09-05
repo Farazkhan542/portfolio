@@ -57,7 +57,7 @@ function DesktopDiagram() {
 
         <line
           className="pipeline-flow-line"
-          pathLength="1"
+          style={{ "--line-length": WIDTH - PAD * 2 }}
           x1={PAD}
           y1={Y}
           x2={WIDTH - PAD}

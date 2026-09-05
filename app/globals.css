@@ -293,8 +293,8 @@
 
 /* ---------- Pipeline schematic: line draws in on mount ---------- */
 .pipeline-flow-line {
-  stroke-dasharray: 1;
-  stroke-dashoffset: 1;
+  stroke-dasharray: var(--line-length);
+  stroke-dashoffset: var(--line-length);
   animation: draw-line 1.3s var(--ease-premium) 0.5s forwards;
 }
 .pipeline-pulses {
