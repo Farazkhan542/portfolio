@@ -1,3 +1,4 @@
+import LoadingScreen from "@/components/LoadingScreen";
 import Effects from "@/components/Effects";
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
@@ -12,6 +13,7 @@ import Footer from "@/components/Footer";
 export default function Home() {
   return (
     <div className="flex min-h-full flex-col">
+      <LoadingScreen />
       <Effects />
       <Navbar />
 
