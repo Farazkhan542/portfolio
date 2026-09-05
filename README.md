@@ -26,6 +26,25 @@ Open http://localhost:3000
 npx vercel
 ```
 
+## Visitor analytics
+
+Vercel Web Analytics is wired up (`<Analytics />` in `app/layout.js`) — cookieless
+page views, unique visitors, referrers, countries and devices, visible in the
+Vercel dashboard under **Analytics**. No personal data is collected.
+
+## Contact form
+
+The form uses [Web3Forms](https://web3forms.com) and only renders once its key is
+set, so a dead form is never shipped:
+
+1. Sign up at web3forms.com with the inbox that should receive submissions
+2. In Vercel: **Project → Settings → Environment Variables**, add
+   `NEXT_PUBLIC_WEB3FORMS_KEY` with the access key
+3. Redeploy — the form appears next to the contact links
+
+Submissions arrive by email and are listed in the Web3Forms dashboard. See
+`.env.example`.
+
 ## Structure
 
 ```
