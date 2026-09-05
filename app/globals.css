@@ -3,13 +3,12 @@
 @tailwind utilities;
 
 /* ============================================================
-   Design tokens — smoky-black ground (#11120D) in dark, warm paper
-   in light, both on a shared warm-olive hue so the neutrals agree
-   with the lime. Three working accents tied to real meaning rather
-   than one accent painted everywhere: signal (lime, active/live),
-   data (teal, validated & enriched), relay (amber, agents &
-   outreach). Light theme in :root, dark in .dark. All colors are
-   HSL triples, consumed as hsl(var(--token)).
+   Design tokens — graphite-green ink in dark, warm paper in light.
+   Three working accents tied to real meaning rather than one accent
+   painted everywhere: signal (lime, active/live), data (teal,
+   validated & enriched), relay (amber, agents & outreach). Light
+   theme in :root, dark in .dark. All colors are HSL triples,
+   consumed as hsl(var(--token)).
    ============================================================ */
 
 :root {
@@ -48,7 +47,8 @@
   /* Ambient layer, tuned per theme: on paper the glow blobs read as dirty
      smudges if they carry dark-theme strength, so they're pulled right back. */
   --ambient-opacity: 0.2;
-  --grid-alpha: 0.15;
+  --grid-alpha: 0.15;                /* square matrix pattern, per review note */
+  --dot-alpha: 0.09;                 /* pipeline strip dots — separate, unchanged */
 
   --ease-premium: cubic-bezier(0.16, 1, 0.3, 1);
 
@@ -61,30 +61,30 @@
 }
 
 .dark {
-  --background: 72 16% 6%;           /* smoky black #11120D — warm, matches lime */
-  --foreground: 80 12% 92%;
-  --card: 75 12% 9%;
-  --card-foreground: 80 12% 92%;
-  --popover: 75 12% 10%;
-  --popover-foreground: 80 12% 92%;
+  --background: 150 13% 6%;          /* graphite-green ink, not neutral gray */
+  --foreground: 90 12% 92%;
+  --card: 150 11% 9%;
+  --card-foreground: 90 12% 92%;
+  --popover: 150 11% 10%;
+  --popover-foreground: 90 12% 92%;
   --primary: 84 68% 56%;             /* signal: lime, used sparingly */
-  --primary-foreground: 75 30% 8%;
-  --secondary: 75 9% 15%;
-  --secondary-foreground: 80 10% 90%;
-  --muted: 75 9% 14%;
-  --muted-foreground: 75 7% 62%;
+  --primary-foreground: 150 30% 8%;
+  --secondary: 150 8% 15%;
+  --secondary-foreground: 90 10% 90%;
+  --muted: 150 8% 14%;
+  --muted-foreground: 150 6% 60%;
   --accent: 84 28% 16%;
   --accent-foreground: 84 58% 72%;
   --highlight: 34 88% 55%;           /* relay: amber */
-  --highlight-foreground: 75 20% 8%;
+  --highlight-foreground: 150 20% 8%;
   --success: 152 45% 46%;
-  --success-foreground: 75 20% 8%;
+  --success-foreground: 150 20% 8%;
   --warning: 34 90% 55%;
-  --warning-foreground: 75 20% 8%;
+  --warning-foreground: 150 20% 8%;
   --destructive: 3 65% 52%;
   --destructive-foreground: 0 0% 98%;
-  --border: 75 9% 18%;
-  --input: 75 9% 20%;
+  --border: 150 8% 17%;
+  --input: 150 8% 19%;
   --ring: 84 65% 52%;
   --chart-1: 84 60% 56%;
   --chart-2: 34 90% 56%;
@@ -93,9 +93,10 @@
   --chart-5: 12 62% 58%;
 
   --ambient-opacity: 0.85;
-  --grid-alpha: 0.15;
+  --grid-alpha: 0.07;                /* dark restored to its original strength */
+  --dot-alpha: 0.09;
 
-  --shadow-color: 75 60% 2%;
+  --shadow-color: 150 60% 2%;
 }
 
 @layer base {
@@ -175,7 +176,7 @@
 
   /* Faint dot grid for the pipeline schematic panel */
   .blueprint-grid {
-    background-image: radial-gradient(hsl(var(--foreground) / var(--grid-alpha)) 1px, transparent 1px);
+    background-image: radial-gradient(hsl(var(--foreground) / var(--dot-alpha)) 1px, transparent 1px);
     background-size: 18px 18px;
   }
 }
