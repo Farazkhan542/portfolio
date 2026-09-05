@@ -4,6 +4,7 @@ import { Badge } from "@/components/ui/Badge";
 import { Button } from "@/components/ui/Button";
 import SectionHeader from "./SectionHeader";
 import TiltCard from "./TiltCard";
+import HorizontalScroll from "./HorizontalScroll";
 import {
   Layout,
   CloudRain,
@@ -132,6 +133,7 @@ export default function Projects() {
       <div className="mx-auto max-w-6xl px-4 md:px-8">
         <SectionHeader path="~/projects" title="Selected work I'm proud of" />
 
+
         {/* Featured project */}
         <Card className="reveal mb-4 overflow-hidden border-primary/30 shadow-elevated">
           <div className="relative border-b border-border bg-muted/20">
@@ -247,10 +249,23 @@ export default function Projects() {
           </CardContent>
         </Card>
 
-        <div className="grid gap-4 md:grid-cols-2">
-          {PROJECTS.map((project) => (
-            <TiltCard key={project.title} className="h-full">
-              <Card className="group reveal h-full transition-all hover:border-primary/40 hover:shadow-elevated">
+        <div className="reveal mt-14 flex items-baseline justify-between gap-4 border-t border-border pt-6">
+          <p className="font-mono text-[11px] uppercase tracking-[0.18em] text-muted-foreground">
+            More work
+          </p>
+          <p className="hidden font-mono text-[11px] uppercase tracking-[0.18em] text-muted-foreground lg:block">
+            Keep scrolling →
+          </p>
+        </div>
+      </div>
+
+      <HorizontalScroll className="mt-6">
+        {PROJECTS.map((project) => (
+          <TiltCard
+            key={project.title}
+            className="w-[clamp(280px,78vw,30rem)] shrink-0 snap-center"
+          >
+            <Card className="group h-full transition-all hover:border-primary/40 hover:shadow-elevated">
               <CardContent className="flex h-full flex-col gap-4 py-5">
                 <div className="flex items-start justify-between gap-2">
                   <span className="flex size-11 items-center justify-center rounded-lg border border-border text-muted-foreground">
@@ -274,10 +289,10 @@ export default function Projects() {
                 </div>
 
                 <div>
-                  <h3 className="font-heading text-lg font-semibold tracking-tight transition-colors group-hover:text-primary">
+                  <h3 className="font-heading text-xl font-semibold tracking-tight transition-colors group-hover:text-primary">
                     {project.title}
                   </h3>
-                  <p className="mt-1.5 text-sm leading-relaxed text-muted-foreground">
+                  <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
                     {project.description}
                   </p>
                 </div>
@@ -290,23 +305,29 @@ export default function Projects() {
                   ))}
                 </div>
               </CardContent>
-              </Card>
-            </TiltCard>
-          ))}
-        </div>
+            </Card>
+          </TiltCard>
+        ))}
 
-        <div className="reveal mt-8 text-center">
-          <Button
-            variant="outline"
-            href="https://github.com/Farazkhan542"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <GitHub size={16} />
-            Explore more on GitHub
-          </Button>
+        <div className="flex w-[clamp(260px,70vw,24rem)] shrink-0 snap-center items-center">
+          <div className="w-full rounded-xl border border-dashed border-border bg-muted/10 px-6 py-10 text-center">
+            <p className="font-heading text-lg font-medium">There&apos;s more</p>
+            <p className="mt-2 text-sm text-muted-foreground">
+              Notebooks, experiments and smaller builds live on GitHub.
+            </p>
+            <Button
+              variant="outline"
+              href="https://github.com/Farazkhan542"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mt-5"
+            >
+              <GitHub size={16} />
+              Explore GitHub
+            </Button>
+          </div>
         </div>
-      </div>
+      </HorizontalScroll>
     </section>
   );
 }

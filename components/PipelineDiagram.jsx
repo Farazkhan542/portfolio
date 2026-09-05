@@ -152,21 +152,23 @@ function MobileDiagram() {
 
 export default function PipelineDiagram() {
   return (
-    <div className="blueprint-grid rounded-xl border border-border bg-muted/20 p-5 md:p-10">
-      <p className="font-mono text-[11px] text-muted-foreground">
-        <span className="text-primary">$</span> trace lead-pipeline --client
-        digitemb --volume 1.7M --status <span className="text-primary">live</span>
-      </p>
+    <div className="blueprint-grid border-y border-border bg-muted/20 py-6 md:py-10">
+      <div className="mx-auto w-full max-w-6xl px-4 md:px-8">
+        <p className="font-mono text-[11px] text-muted-foreground">
+          <span className="text-primary">$</span> trace lead-pipeline --client
+          digitemb --volume 1.7M --status <span className="text-primary">live</span>
+        </p>
 
-      <p className="sr-only">
-        Lead pipeline, in order, as data flows left to right: sources feed
-        PostgreSQL, then dedupe and normalize, then verify and enrich, then a
-        Retrieval Agent and Copywriter Agent generate and send outreach.
-      </p>
+        <p className="sr-only">
+          Lead pipeline, in order, as data flows left to right: sources feed
+          PostgreSQL, then dedupe and normalize, then verify and enrich, then a
+          Retrieval Agent and Copywriter Agent generate and send outreach.
+        </p>
 
-      <div className="mt-8 md:mt-2">
-        <DesktopDiagram />
-        <MobileDiagram />
+        <div className="mt-8 md:mt-2">
+          <DesktopDiagram />
+          <MobileDiagram />
+        </div>
       </div>
     </div>
   );
