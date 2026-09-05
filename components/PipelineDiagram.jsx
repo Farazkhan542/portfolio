@@ -36,7 +36,14 @@ function DesktopDiagram() {
         aria-hidden="true"
       >
         <defs>
-          <linearGradient id="flow" x1="0" y1="0" x2="1" y2="0">
+          <linearGradient
+            id="flow"
+            x1={PAD}
+            y1={Y}
+            x2={WIDTH - PAD}
+            y2={Y}
+            gradientUnits="userSpaceOnUse"
+          >
             <stop offset="0%" style={{ stopColor: TONE.graphite.fill }} />
             <stop offset="27%" style={{ stopColor: TONE.graphite.fill }} />
             <stop offset="32%" style={{ stopColor: TONE.data.fill }} />
@@ -46,7 +53,14 @@ function DesktopDiagram() {
             <stop offset="88%" style={{ stopColor: TONE.signal.fill }} />
             <stop offset="100%" style={{ stopColor: TONE.signal.fill }} />
           </linearGradient>
-          <filter id="pipeline-glow" x="-20%" y="-300%" width="140%" height="700%">
+          <filter
+            id="pipeline-glow"
+            x="0"
+            y="0"
+            width={WIDTH}
+            height={HEIGHT}
+            filterUnits="userSpaceOnUse"
+          >
             <feGaussianBlur stdDeviation="5" result="blur" />
             <feMerge>
               <feMergeNode in="blur" />
