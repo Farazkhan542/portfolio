@@ -82,8 +82,13 @@ export default function Hero() {
 
         {/* Spec grid */}
         <dl className="reveal delay-3 mt-10 grid grid-cols-2 border-l border-t border-border sm:grid-cols-3 lg:grid-cols-5">
-          {SPECS.map((spec) => (
-            <div key={spec.label} className="border-b border-r border-border px-4 py-5">
+          {SPECS.map((spec, i) => (
+            <div
+              key={spec.label}
+              className={`border-b border-r border-border px-4 py-5 ${
+                i === SPECS.length - 1 ? "col-span-2 sm:col-span-1" : ""
+              }`}
+            >
               <dt className="font-mono text-[10px] uppercase tracking-[0.18em] text-muted-foreground">
                 {spec.label}
               </dt>
