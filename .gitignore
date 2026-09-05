@@ -12,3 +12,8 @@
 .DS_Store
 *.log
 .env*
+
+# local scratch / verification artifacts, never part of the site
+scratch_*.py
+_verify_*
+_ref_*
