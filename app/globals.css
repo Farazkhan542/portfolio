@@ -14,11 +14,11 @@
 
 :root {
   --background: 75 15% 94%;          /* warm paper, deep enough for cards to lift */
-  --foreground: 75 15% 10%;
+  --foreground: 72 16% 6%;            /* smoky black #11120D for headings/text */
   --card: 60 20% 99%;
-  --card-foreground: 75 15% 10%;
+  --card-foreground: 72 16% 6%;
   --popover: 60 20% 99%;
-  --popover-foreground: 75 15% 10%;
+  --popover-foreground: 72 16% 6%;
   --primary: 84 55% 29%;             /* signal: deep lime, readable on paper */
   --primary-foreground: 80 40% 97%;
   --secondary: 75 12% 90%;
@@ -48,7 +48,7 @@
   /* Ambient layer, tuned per theme: on paper the glow blobs read as dirty
      smudges if they carry dark-theme strength, so they're pulled right back. */
   --ambient-opacity: 0.2;
-  --grid-alpha: 0.055;
+  --grid-alpha: 0.15;
 
   --ease-premium: cubic-bezier(0.16, 1, 0.3, 1);
 
