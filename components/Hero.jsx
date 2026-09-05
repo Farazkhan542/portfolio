@@ -7,15 +7,15 @@ export default function Hero() {
     <section id="home" className="relative pb-16 pt-32 md:pt-40">
       <div className="mx-auto max-w-6xl px-4 md:px-8">
         <div className="max-w-3xl">
-          <h1 className="reveal font-heading text-[2.4rem] font-medium leading-[1.08] tracking-tight md:text-[3.4rem]">
+          <h1 className="reveal font-heading text-[2.6rem] font-semibold leading-[1.05] tracking-[-0.02em] md:text-[4rem] lg:text-[4.6rem]">
             Muhammad Faraz Khan builds systems that{" "}
             <span className="text-primary">read data and act on it.</span>
           </h1>
 
           <p className="reveal delay-1 mt-6 max-w-xl text-base leading-relaxed text-muted-foreground">
-            AI Agentic Developer &amp; LLM Engineer in Karachi, Pakistan. I turn
-            messy pipelines — CRMs, spreadsheets, inboxes — into autonomous
-            multi-agent products that ship.
+            AI Agentic Developer &amp; LLM Engineer based in Karachi, Pakistan.
+            I built the system that turns 1.7M scattered leads into verified
+            records and lets a team of agents write the outreach themselves.
           </p>
 
           <div className="reveal delay-2 mt-8 flex flex-wrap items-center gap-3">
