@@ -123,13 +123,15 @@ export default function Navbar() {
             if (!menuOpen) setMenuMounted(false);
           }}
         >
-          {LINKS.map((link) => (
+          {LINKS.map((link, i) => (
             <a
               key={link.id}
               href={`#${link.id}`}
               onClick={closeMenu}
+              style={menuOpen ? { animationDelay: `${i * 40}ms` } : undefined}
               className={cn(
                 "block rounded-lg px-3 py-2.5 text-sm font-medium transition-colors",
+                menuOpen && "opacity-0 animate-[fade-up-in_320ms_ease-out_forwards]",
                 active === link.id
                   ? "bg-accent text-accent-foreground"
                   : "text-muted-foreground hover:bg-accent/60 hover:text-foreground"

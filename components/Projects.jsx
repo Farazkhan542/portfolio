@@ -2,6 +2,7 @@ import { Card, CardContent } from "@/components/ui/Card";
 import { Badge } from "@/components/ui/Badge";
 import { Button } from "@/components/ui/Button";
 import SectionHeader from "./SectionHeader";
+import TiltCard from "./TiltCard";
 import {
   Layout,
   CloudRain,
@@ -236,10 +237,8 @@ export default function Projects() {
 
         <div className="grid gap-4 md:grid-cols-2">
           {PROJECTS.map((project) => (
-            <Card
-              key={project.title}
-              className="group reveal transition-all hover:border-primary/40 hover:shadow-elevated"
-            >
+            <TiltCard key={project.title} className="h-full">
+              <Card className="group reveal h-full transition-all hover:border-primary/40 hover:shadow-elevated">
               <CardContent className="flex h-full flex-col gap-4 py-5">
                 <div className="flex items-start justify-between gap-2">
                   <span className="flex size-11 items-center justify-center rounded-lg border border-border text-muted-foreground">
@@ -279,7 +278,8 @@ export default function Projects() {
                   ))}
                 </div>
               </CardContent>
-            </Card>
+              </Card>
+            </TiltCard>
           ))}
         </div>
 

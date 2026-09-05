@@ -49,10 +49,20 @@ export default function Effects() {
   }, []);
 
   return (
-    <div
-      ref={progressRef}
-      className="fixed left-0 top-0 z-50 h-0.5 w-0 bg-primary"
-      aria-hidden="true"
-    />
+    <>
+      <div
+        ref={progressRef}
+        className="fixed left-0 top-0 z-50 h-0.5 w-0 bg-primary"
+        aria-hidden="true"
+      />
+      <div className="ambient-scene" aria-hidden="true">
+        <div className="ambient-grid" />
+        <div className="ambient-blob ambient-blob-1" />
+        <div className="ambient-blob ambient-blob-2" />
+        <div className="ambient-blob ambient-blob-3" />
+        <div className="ambient-blob ambient-blob-4" />
+        <div className="ambient-blob ambient-blob-5" />
+      </div>
+    </>
   );
 }

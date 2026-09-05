@@ -56,6 +56,8 @@ function DesktopDiagram() {
         </defs>
 
         <line
+          className="pipeline-flow-line"
+          pathLength="1"
           x1={PAD}
           y1={Y}
           x2={WIDTH - PAD}
@@ -70,22 +72,18 @@ function DesktopDiagram() {
           <circle key={p.label} cx={p.x} cy={Y} r="5" fill={TONE[p.tone].fill} />
         ))}
 
-        {[0, 1, 2].map((i) => (
-          <circle
-            key={i}
-            r="4.5"
-            fill="hsl(var(--primary))"
-            filter="url(#pipeline-glow)"
-            className="motion-reduce:hidden"
-          >
-            <animateMotion
-              dur="4.2s"
-              begin={`${i * 1.4}s`}
-              repeatCount="indefinite"
-              path={`M${PAD},${Y} L${WIDTH - PAD},${Y}`}
-            />
-          </circle>
-        ))}
+        <g className="pipeline-pulses motion-reduce:hidden">
+          {[0, 1, 2].map((i) => (
+            <circle key={i} r="4.5" fill="hsl(var(--primary))" filter="url(#pipeline-glow)">
+              <animateMotion
+                dur="4.2s"
+                begin={`${i * 1.4}s`}
+                repeatCount="indefinite"
+                path={`M${PAD},${Y} L${WIDTH - PAD},${Y}`}
+              />
+            </circle>
+          ))}
+        </g>
       </svg>
 
       {POINTS.map((p) => (

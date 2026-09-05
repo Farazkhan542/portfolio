@@ -44,6 +44,8 @@
   --chart-5: 12 55% 50%;
   --radius: 0.625rem;
 
+  --ease-premium: cubic-bezier(0.16, 1, 0.3, 1);
+
   --shadow-color: 150 30% 4%;
   --shadow-xs: 0 1px 2px 0 hsl(var(--shadow-color) / 0.16);
   --shadow-sm: 0 1px 2px -1px hsl(var(--shadow-color) / 0.24), 0 2px 5px -1px hsl(var(--shadow-color) / 0.16);
@@ -165,6 +167,93 @@
   }
 }
 
+/* Upgrade every Tailwind transition utility to a snappier custom ease,
+   without having to touch each hover: usage across the codebase. */
+.transition-all,
+.transition-colors,
+.transition-transform,
+.transition-opacity {
+  transition-timing-function: var(--ease-premium);
+}
+
+/* ---------- Ambient background: drifting blobs + slow grid ---------- */
+.ambient-scene {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  overflow: hidden;
+  pointer-events: none;
+}
+.ambient-grid {
+  position: absolute;
+  inset: -10%;
+  background-image:
+    linear-gradient(hsl(var(--foreground) / 0.035) 1px, transparent 1px),
+    linear-gradient(90deg, hsl(var(--foreground) / 0.035) 1px, transparent 1px);
+  background-size: 56px 56px;
+  animation: grid-flow 26s linear infinite;
+  mask-image: radial-gradient(ellipse 70% 60% at 50% 0%, black 20%, transparent 75%);
+  -webkit-mask-image: radial-gradient(ellipse 70% 60% at 50% 0%, black 20%, transparent 75%);
+}
+.ambient-blob {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(90px);
+  opacity: 0.5;
+}
+.ambient-blob-1 {
+  width: 460px; height: 460px;
+  top: -120px; left: -100px;
+  background: radial-gradient(circle, hsl(var(--primary) / 0.16), transparent 70%);
+  animation: blob-a 24s var(--ease-premium) infinite;
+}
+.ambient-blob-2 {
+  width: 380px; height: 380px;
+  top: 8%; right: -120px;
+  background: radial-gradient(circle, hsl(var(--chart-3) / 0.14), transparent 70%);
+  animation: blob-b 29s var(--ease-premium) infinite;
+  animation-delay: -6s;
+}
+.ambient-blob-3 {
+  width: 420px; height: 420px;
+  top: 42%; left: 8%;
+  background: radial-gradient(circle, hsl(var(--highlight) / 0.11), transparent 70%);
+  animation: blob-c 33s var(--ease-premium) infinite;
+  animation-delay: -14s;
+}
+.ambient-blob-4 {
+  width: 500px; height: 500px;
+  bottom: -160px; right: 6%;
+  background: radial-gradient(circle, hsl(var(--primary) / 0.1), transparent 70%);
+  animation: blob-a 27s var(--ease-premium) infinite reverse;
+  animation-delay: -3s;
+}
+.ambient-blob-5 {
+  width: 340px; height: 340px;
+  bottom: 12%; left: 40%;
+  background: radial-gradient(circle, hsl(var(--chart-3) / 0.09), transparent 70%);
+  animation: blob-b 21s var(--ease-premium) infinite reverse;
+  animation-delay: -9s;
+}
+
+@keyframes grid-flow {
+  from { background-position: 0 0, 0 0; }
+  to { background-position: 56px 84px, 56px 84px; }
+}
+@keyframes blob-a {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  50% { transform: translate(50px, 36px) scale(1.14); }
+}
+@keyframes blob-b {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  50% { transform: translate(-46px, 30px) scale(0.9); }
+}
+@keyframes blob-c {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  33% { transform: translate(36px, -28px) scale(1.08); }
+  66% { transform: translate(-24px, 22px) scale(0.94); }
+}
+
 /* ---------- Pipeline schematic: packets traveling along a track ---------- */
 .pipeline-track {
   position: relative;
@@ -202,6 +291,23 @@
   to { top: calc(100% - 6px); opacity: 0; }
 }
 
+/* ---------- Pipeline schematic: line draws in on scroll reveal ---------- */
+.pipeline-flow-line {
+  stroke-dasharray: 1;
+  stroke-dashoffset: 1;
+  transition: stroke-dashoffset 1.5s var(--ease-premium) 0.2s;
+}
+.reveal.visible .pipeline-flow-line {
+  stroke-dashoffset: 0;
+}
+.pipeline-pulses {
+  opacity: 0;
+  transition: opacity 0.5s ease 1.5s;
+}
+.reveal.visible .pipeline-pulses {
+  opacity: 1;
+}
+
 /* ---------- Mobile menu enter/exit ---------- */
 @keyframes scale-down {
   from { transform: scale(1); opacity: 1; }
@@ -210,6 +316,10 @@
 @keyframes scale-up {
   from { transform: scale(0.85); opacity: 0; }
   to { transform: scale(1); opacity: 1; }
+}
+@keyframes fade-up-in {
+  from { opacity: 0; transform: translateY(6px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
 @media (prefers-reduced-motion: reduce) {
