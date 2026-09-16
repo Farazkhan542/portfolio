@@ -5,6 +5,13 @@ import { Quote } from "./Icons";
 const TESTIMONIALS = [
   {
     quote:
+      "Worked with Faraz on a data scraping project, and he did an excellent job. He gave me exactly what I wanted and was very flexible whenever I needed changes. My client on this project was a bit demanding, giving instructions day by day, but Faraz handled it well and met every deadline my client set. The leads he provided were good quality too. It was a really smooth experience overall, and I'm looking forward to working with him long term!",
+    name: "Kay",
+    role: "Founder & CEO",
+    company: "Konnex",
+  },
+  {
+    quote:
       "Faraz took ownership of a 1.7-million-lead migration for our client and built the entire CDC pipeline and multi-agent outreach system with minimal supervision. He works like an engineer twice his experience level.",
     name: "Abdul Mueed",
     role: "Team Lead",
@@ -45,7 +52,7 @@ export default function Testimonials() {
           title="What people say about working with me"
         />
 
-        <div className="grid gap-4 md:grid-cols-3">
+        <div className="grid gap-4 md:grid-cols-2">
           {TESTIMONIALS.map((t, i) => (
             <Card
               key={t.name}
