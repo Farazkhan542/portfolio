@@ -5,8 +5,8 @@ import { ArrowUpRight, ArrowDown, GitHub, LinkedIn, Mail, WhatsApp } from "./Ico
 const SPECS = [
   { label: "Builds", value: "Multi-agent systems", sub: "RAG · CDC pipelines" },
   { label: "Scale", value: "1.7M records", sub: "largest system shipped" },
-  { label: "Shipped", value: "8 systems", sub: "client work & solo builds" },
-  { label: "Solo product", value: "VibeUI", sub: "live · multi-tenant SaaS" },
+  { label: "Shipped", value: "9 systems", sub: "client work & solo builds" },
+  { label: "Solo products", value: "2 live", sub: "ScholarReach · VibeUI" },
   { label: "Based", value: "Karachi, PK", sub: "open to remote roles" },
 ];
 

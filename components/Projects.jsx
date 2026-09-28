@@ -7,6 +7,7 @@ import TiltCard from "./TiltCard";
 import HorizontalScroll from "./HorizontalScroll";
 import {
   Layout,
+  GraduationCap,
   CloudRain,
   FileText,
   MessageSquare,
@@ -15,9 +16,74 @@ import {
   GitHub,
 } from "./Icons";
 
-const FEATURED = {
+const SCHOLARREACH = {
+  icon: <GraduationCap size={22} />,
+  title: "ScholarReach",
+  badge: "Newest",
+  image: {
+    src: "/projects/scholarreach.png",
+    alt: "ScholarReach landing page: 'Reach the professors who work on exactly what you want to research.'",
+  },
+  tagline:
+    "Finds professors who actually research your niche, gets their email addresses, and sends personal, reviewed outreach emails from your own Gmail.",
+  role: "Solo full-stack engineer",
+  category: "Full-stack web app · For students applying abroad",
+  description:
+    "Students applying for BS research, MS and PhD positions abroad were contacting professors at random — browsing university sites one by one, copying names into spreadsheets, guessing emails and sending generic messages to people who didn't work on their topic, so most got no reply. ScholarReach turns weeks of manual searching into minutes and keeps every email personal and approved by the student.",
+  liveUrl: "https://scholarreach.faraz-khan.xyz",
+  apiUrl: "https://scholarreach-api.faraz-khan.xyz/docs",
+  note: "Demo available; private installs on request (VPS or own device).",
+  highlights: [
+    "Seven specialized agents run it end to end — profile, matching, email finding, department scouting, positions, writing and sending",
+    "Matching Agent ranks professors from recent OpenAlex papers by topic match, lab leadership, funding and activity — every match shows its reasons",
+    "Email Finder validates each address against the professor's name and university domain; likely-format guesses are clearly marked unverified",
+    "Writer Agent drafts a personal email citing the professor's own paper; Sender Agent sends from the student's own Gmail (OAuth, send-only) only after approval",
+    "Long scrapes split into ~20s resumable steps stored in the DB, so they survive serverless timeouts",
+    "Responsible scraping: respects robots.txt, blocks requests to private addresses (SSRF), honors 429/503 Retry-After",
+    "Security: bcrypt, JWT invalidated on password change, account lockout, single-use reset links, encrypted Gmail tokens",
+  ],
+  stack: [
+    {
+      label: "Backend",
+      items: [
+        "Python",
+        "FastAPI",
+        "SQLAlchemy (async)",
+        "PostgreSQL (Neon)",
+        "BeautifulSoup",
+        "httpx",
+      ],
+    },
+    {
+      label: "Frontend",
+      items: ["Next.js 16", "React 19", "TypeScript", "Tailwind CSS 4"],
+    },
+    {
+      label: "Integrations",
+      items: [
+        "Gmail API",
+        "OpenAlex",
+        "Europe PMC",
+        "ORCID",
+        "Google Gemini",
+        "Tavily / Serper",
+      ],
+    },
+    {
+      label: "Hosting & quality",
+      items: ["Vercel", "Neon (Frankfurt)", "Cloudflare DNS", "90 pytest tests"],
+    },
+  ],
+};
+
+const VIBEUI = {
   icon: <Layout size={22} />,
   title: "VibeUI",
+  badge: "Flagship",
+  image: {
+    src: "/projects/vibeui.png",
+    alt: "VibeUI landing page: 'Turn a conversation into a real UI component'",
+  },
   tagline:
     "AI-powered UI generation from a conversation — describe your product, get a full set of production-ready React screens grounded in real competitor research.",
   role: "Solo full-stack / AI engineer",
@@ -66,6 +132,8 @@ const FEATURED = {
     },
   ],
 };
+
+const FEATURED_PROJECTS = [SCHOLARREACH, VIBEUI];
 
 const PROJECTS = [
   {
@@ -134,120 +202,148 @@ export default function Projects() {
         <SectionHeader path="~/projects" title="Selected work I'm proud of" />
 
 
-        {/* Featured project */}
-        <Card className="reveal mb-4 overflow-hidden border-primary/30 shadow-elevated">
-          <div className="relative border-b border-border bg-muted/20">
-            <Image
-              src="/projects/vibeui.png"
-              alt="VibeUI landing page: 'Turn a conversation into a real UI component'"
-              width={1600}
-              height={1000}
-              className="w-full"
-            />
-            <div className="pointer-events-none absolute inset-x-0 bottom-0 h-20 bg-gradient-to-t from-card to-transparent" />
-          </div>
-
-          <CardContent className="grid gap-8 py-6 lg:grid-cols-[1.1fr_0.9fr]">
-            <div className="flex flex-col">
-              <div className="flex flex-wrap items-center gap-2">
-                <span className="flex size-11 items-center justify-center rounded-lg bg-accent text-primary">
-                  {FEATURED.icon}
-                </span>
-                <Badge variant="success" className="gap-1.5">
-                  <span className="relative flex size-1.5">
-                    <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-success opacity-60"></span>
-                    <span className="relative inline-flex size-1.5 rounded-full bg-success"></span>
-                  </span>
-                  Live Product
-                </Badge>
-                <Badge variant="highlight">Flagship</Badge>
-              </div>
-
-              <h3 className="mt-4 font-heading text-2xl font-semibold tracking-tight">
-                {FEATURED.title}
-              </h3>
-              <p className="mt-1 text-xs text-muted-foreground">
-                {FEATURED.role} · {FEATURED.category}
-              </p>
-
-              <p className="mt-4 text-sm font-medium leading-relaxed text-foreground">
-                {FEATURED.tagline}
-              </p>
-              <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
-                {FEATURED.description}
-              </p>
-
-              <div className="mt-6 flex flex-wrap gap-3">
-                <Button
-                  href={FEATURED.liveUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="group"
-                >
-                  Live Demo
-                  <ArrowUpRight
-                    size={16}
-                    className="transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
-                  />
-                </Button>
-                <Button
-                  variant="outline"
-                  href={FEATURED.sourceUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <GitHub size={16} />
-                  View Source
-                </Button>
-              </div>
+        {/* Featured projects */}
+        {FEATURED_PROJECTS.map((project) => (
+          <Card
+            key={project.title}
+            className="reveal mb-4 overflow-hidden border-primary/30 shadow-elevated"
+          >
+            <div className="relative border-b border-border bg-muted/20">
+              <Image
+                src={project.image.src}
+                alt={project.image.alt}
+                width={1600}
+                height={1000}
+                className="w-full"
+              />
+              <div className="pointer-events-none absolute inset-x-0 bottom-0 h-20 bg-gradient-to-t from-card to-transparent" />
             </div>
 
-            <div className="flex flex-col gap-6 lg:border-l lg:border-border lg:pl-8">
-              <div>
-                <p className="text-[11px] font-semibold uppercase tracking-wider text-muted-foreground">
-                  Highlights
+            <CardContent className="grid gap-8 py-6 lg:grid-cols-[1.1fr_0.9fr]">
+              <div className="flex flex-col">
+                <div className="flex flex-wrap items-center gap-2">
+                  <span className="flex size-11 items-center justify-center rounded-lg bg-accent text-primary">
+                    {project.icon}
+                  </span>
+                  <Badge variant="success" className="gap-1.5">
+                    <span className="relative flex size-1.5">
+                      <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-success opacity-60"></span>
+                      <span className="relative inline-flex size-1.5 rounded-full bg-success"></span>
+                    </span>
+                    Live Product
+                  </Badge>
+                  <Badge variant="highlight">{project.badge}</Badge>
+                </div>
+
+                <h3 className="mt-4 font-heading text-2xl font-semibold tracking-tight">
+                  {project.title}
+                </h3>
+                <p className="mt-1 text-xs text-muted-foreground">
+                  {project.role} · {project.category}
                 </p>
-                <ul className="mt-3 space-y-2.5">
-                  {FEATURED.highlights.map((point) => (
-                    <li
-                      key={point}
-                      className="flex gap-2.5 text-sm leading-relaxed text-muted-foreground"
+
+                <p className="mt-4 text-sm font-medium leading-relaxed text-foreground">
+                  {project.tagline}
+                </p>
+                <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
+                  {project.description}
+                </p>
+
+                <div className="mt-6 flex flex-wrap gap-3">
+                  <Button
+                    href={project.liveUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="group"
+                  >
+                    Live Demo
+                    <ArrowUpRight
+                      size={16}
+                      className="transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
+                    />
+                  </Button>
+
+                  {project.sourceUrl ? (
+                    <Button
+                      variant="outline"
+                      href={project.sourceUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
                     >
-                      <span className="mt-2 size-1.5 shrink-0 rounded-full bg-primary"></span>
-                      <span>{point}</span>
-                    </li>
-                  ))}
-                </ul>
+                      <GitHub size={16} />
+                      View Source
+                    </Button>
+                  ) : null}
+
+                  {project.apiUrl ? (
+                    <Button
+                      variant="outline"
+                      href={project.apiUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="group"
+                    >
+                      API Docs
+                      <ArrowUpRight
+                        size={16}
+                        className="transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
+                      />
+                    </Button>
+                  ) : null}
+                </div>
+
+                {project.note ? (
+                  <p className="mt-3 text-xs text-muted-foreground">{project.note}</p>
+                ) : null}
               </div>
 
-              <div>
-                <p className="text-[11px] font-semibold uppercase tracking-wider text-muted-foreground">
-                  Stack
-                </p>
-                <div className="mt-3 space-y-3">
-                  {FEATURED.stack.map((group) => (
-                    <div key={group.label}>
-                      <p className="text-xs font-medium text-foreground">
-                        {group.label}
-                      </p>
-                      <div className="mt-1.5 flex flex-wrap gap-1.5">
-                        {group.items.map((item) => (
-                          <Badge
-                            key={item}
-                            variant="outline"
-                            className="font-mono"
-                          >
-                            {item}
-                          </Badge>
-                        ))}
+              <div className="flex flex-col gap-6 lg:border-l lg:border-border lg:pl-8">
+                <div>
+                  <p className="text-[11px] font-semibold uppercase tracking-wider text-muted-foreground">
+                    Highlights
+                  </p>
+                  <ul className="mt-3 space-y-2.5">
+                    {project.highlights.map((point) => (
+                      <li
+                        key={point}
+                        className="flex gap-2.5 text-sm leading-relaxed text-muted-foreground"
+                      >
+                        <span className="mt-2 size-1.5 shrink-0 rounded-full bg-primary"></span>
+                        <span>{point}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+
+                <div>
+                  <p className="text-[11px] font-semibold uppercase tracking-wider text-muted-foreground">
+                    Stack
+                  </p>
+                  <div className="mt-3 space-y-3">
+                    {project.stack.map((group) => (
+                      <div key={group.label}>
+                        <p className="text-xs font-medium text-foreground">
+                          {group.label}
+                        </p>
+                        <div className="mt-1.5 flex flex-wrap gap-1.5">
+                          {group.items.map((item) => (
+                            <Badge
+                              key={item}
+                              variant="outline"
+                              className="font-mono"
+                            >
+                              {item}
+                            </Badge>
+                          ))}
+                        </div>
                       </div>
-                    </div>
-                  ))}
+                    ))}
+                  </div>
                 </div>
               </div>
-            </div>
-          </CardContent>
-        </Card>
+            </CardContent>
+          </Card>
+        ))}
 
       </div>
 
